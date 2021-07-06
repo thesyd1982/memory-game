@@ -1,14 +1,17 @@
-//import {Plateau} from "./models/plateau.js"
-import {Case} from "./models/case.js"
-//import { PlateauView } from "./views/plateauView.js"
-import { CaseView } from "./views/caseView.js"
-import { Controller } from "./core/controller.js"
-import { CaseController } from "./controllers/caseController.js"
 
+import {Case} from "./models/case.model.js"
+import { CaseView } from "./views/case.view.js"
+import { CaseController } from "./controllers/case.controller.js"
+import {Plateau} from "./models/plateau.model.js"
 
-// let p = new Plateau(6)
+let p = new Plateau(12,4)
+console.log(p);
 
-let c = new Case('./img/back.png')
+console.log(p.generateCouple("AS"))
+console.log(p.generateTriple("AS"))
+console.log(p.generateClones(10,"AS"))
+
+let c = new Case('AD')
 let vc = new CaseView(document.getElementById("plateau")as HTMLElement)
 
 

@@ -23,4 +23,9 @@ export class Case extends Model {
     toggle(){
         this._face =!this._face
     }
+
+    clone(){
+        return new Case(this._value,this._face);
+    }
+
 }  

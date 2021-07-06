@@ -1,8 +1,7 @@
 import {View}from '../core/view.js'
-import { Plateau } from '../models/plateau.js'
-import { Case } from '../models/case.js'
-export class PlateauView {
-// extends View{
+import { Plateau } from '../models/plateau.model.js'
+import { Case } from '../models/case.model.js'
+export class PlateauView extends View{
 //   private _plateau: Plateau;
   
 //     constructor(plateau:Plateau){

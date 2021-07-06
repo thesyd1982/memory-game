@@ -25,13 +25,52 @@ body {
 	height: 75px;
 	background-color: #ddd;
 	border: 0.25px solid gray;
-	border-radius: 15px;
+	border-radius: 5px;
 	margin: 2px;
+	padding: 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	object-fit: contain;
 }
 .back {
-	background-image: url('./img/back.png');
-	background-size: contain;
+	/* background-image: url('./img/back.png'); */
+	animation: flip-vertical-fwd 0.4s cubic-bezier(0.455, 0.03, 0.515, 1.2) both;
+	background: gray;
+}
+.boxe:hover {
+	border: rgb(0, 221, 192) 1px solid;
+	cursor: pointer;
+}
+.front {
+	background: gray;
+	animation: flip-vertical-bck 0.4s cubic-bezier(0.455, 0.03, 0.515, 1.2) both;
+}
 
-	width: 65px;
-	height: 75px;
+.flip-vertical-fwd {
+	animation: flip-vertical-fwd 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+		both;
+}
+
+@keyframes flip-vertical-fwd {
+	0% {
+		transform: translateZ(0) rotateY(0);
+	}
+	100% {
+		transform: translateZ(160px) rotateY(180deg);
+	}
+}
+
+.flip-vertical-bck {
+	animation: flip-vertical-bck 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+		both;
+}
+
+@keyframes flip-vertical-bck {
+	0% {
+		transform: translateZ(0) rotateY(0);
+	}
+	100% {
+		transform: translateZ(-260px) rotateY(-180deg);
+	}
 }

@@ -1,6 +1,6 @@
 import { Controller } from "../core/controller.js";
-import { Case } from "../models/case.js";
-import { CaseView } from "../views/caseView.js";
+import { Case } from "../models/case.model.js";
+import { CaseView } from "../views/case.view.js";
 
 export class CaseController extends Controller{
     constructor( protected view:CaseView,  protected model:Case){
