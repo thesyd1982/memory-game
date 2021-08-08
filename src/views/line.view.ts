@@ -26,7 +26,7 @@ drawLine = (cases:Case[]) => {
  cases.forEach(
      (c) => { 
          let vc = new CaseView(this.current)
-         vc.drawCase(c.value,c.face);
+         vc.draw(c.value,c.face);
         })
       this.parent.appendChild(this.current)
 };

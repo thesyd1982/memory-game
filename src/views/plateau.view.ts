@@ -3,7 +3,10 @@ import {View}from '../core/view.js'
 // import { Case } from '../models/case.model.js'
 // import { CaseView } from './case.view';
 
-export class PlateauView extends View{ } 
+export class PlateauView extends View{
+    
+    draw():void{}
+ } 
     
 //     protected plateau:HTMLDivElement = document.getElementById("plateau") as HTMLDivElement
   

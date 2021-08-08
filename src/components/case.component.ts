@@ -8,4 +8,7 @@ export class CaseComponent extends Component{
     {
         super(_caseModel,_caseView,_caseController)
     }
+    draw(){
+        this.view.draw();
+    }
 }
