@@ -5,19 +5,8 @@ import { CaseController } from "./controllers/case.controller.js"
 import {Plateau} from "./models/plateau.model.js"
 
 let p = new Plateau(12,4)
-console.log(p);
 
-console.log(p.generateCouple("AS"))
-console.log(p.generateTriple("AS"))
-console.log(p.generateClones(10,"AS"))
 
-let c = new Case('AD')
+let c = new Case('king_heart')
 let vc = new CaseView(document.getElementById("plateau")as HTMLElement)
-
-
-// let vp = new PlateauView(p)
 let co = new CaseController(vc,c)
-
-// vp. drawGrid()
-
-// vp.update(new Plateau(9).cases)
