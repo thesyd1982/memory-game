@@ -1,7 +1,7 @@
 import { Case } from "./case.model.js";
 import { Model } from "../core/model.js";
 
-const nombre_ligne = 8 
+
 
 export  class Plateau extends Model {
     private _cases:any[][]

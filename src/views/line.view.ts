@@ -1,6 +1,6 @@
 import {View}from '../core/view.js'
 import { Case } from '../models/case.model.js'
-import { CaseView } from './case.view';
+import { CaseView } from './case.view.js';
 
 ;
 
