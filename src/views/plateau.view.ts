@@ -1,44 +1,53 @@
 import {View}from '../core/view.js'
-import { Plateau } from '../models/plateau.model.js'
-import { Case } from '../models/case.model.js'
-export class PlateauView extends View{
-//   private _plateau: Plateau;
+// import { Plateau } from '../models/plateau.model.js'
+// import { Case } from '../models/case.model.js'
+// import { CaseView } from './case.view';
+
+export class PlateauView extends View{ } 
+    
+//     protected plateau:HTMLDivElement = document.getElementById("plateau") as HTMLDivElement
   
-//     constructor(plateau:Plateau){
-//         super(plateau)
-//         this._plateau = plateau
-      
+//     constructor(){
+//         super()
+        
 //     }
  
 
-//      grid = document.getElementById("plateau") as HTMLDivElement;
-
-//  drawGrid = () => {
     
-//     this._plateau.cases.map((line :Case[]) => this.grid.appendChild(this.drawLine(line)));
+
+//  drawGrid = (cases:Case[][] ) => {
+    
+//     // cases.map((line :Case[]) => this.plateau.appendChild(this.drawLine(line)));
 // };
 
 // drawLine = (ligne:Case[]) => {
 //   let line = document.createElement("div");
+  
 //   line.classList.add("line");
-//   ligne.map((b) => line.appendChild(this.drawBoxe(b)));
+  
+//   ligne.map((c,index) => {
+//     line.id = `line-${index}`
+//     line.appendChild(this.drawBoxe(line.id,c))});
+   
 //   return line;
 // };
 
-//  drawBoxe = (c : Case) => {
-//   let div = document.createElement("div");
-//   div.classList.add("boxe");
-//   div.addEventListener('click',(e)=>{
+//   drawBoxe = (id:string , c : Case) => {
+// //   let div = document.createElement("div");
+// //   div.classList.add("boxe");
+// //   div.addEventListener('click',(e)=>{
     
-//     console.log("teste click:",c.x,c.y)
-//   })
-//   div.innerText = `_${c.x}
+// //     console.log("teste click:",c.x,c.y)
+// //   })
+// //   div.innerText = `_${c.x}
 
-// ${c.y}`;
-// !c.status?div.classList.add("front"):div.classList.add("back")
+// // ${c.y}`;
+// // !c.status?div.classList.add("front"):div.classList.add("back")
+// let parent = document.getElementById(id) as HTMLImageElement
+// return new CaseView(parent).drawCase(c.value,c.face)
 
-//   return div;
-// };
+  
+//  };
 
 // clearGrid = () => {
 //   this.grid.innerHTML = "";
@@ -50,4 +59,4 @@ export class PlateauView extends View{
 //   this.drawGrid()
 // }
 
-}
+// }

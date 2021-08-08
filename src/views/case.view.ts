@@ -1,11 +1,14 @@
 import { View } from "../core/view.js";
 
 
-export class CaseView extends View{
+export class CaseView extends  View  {
+    
     protected child:HTMLImageElement 
+
     constructor(protected parent :HTMLElement  ){
         super()
         this.child = document.createElement("img");
+        
         this.child.addEventListener('click',(e)=>{
             this.notifyObservers(e)
         })
@@ -18,10 +21,12 @@ export class CaseView extends View{
             this.child.classList.add("front")
             this.child.src = `img/${value}.png`;
         }
-        else{    this.child.classList.add("back")
-        this.child.src = 'img/back.png'
+        else{    
+            this.child.classList.add("back")
+            this.child.src = 'img/back.png'
     }
         this.parent.appendChild(this.child)
+       
   };
 
   clearCase = () => {
