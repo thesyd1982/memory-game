@@ -6,39 +6,29 @@ import { CaseView } from './case.view.js';
 
 export class LineView extends View{
     
-        protected current :HTMLDivElement ; 
-  
-    constructor(protected parent:HTMLDivElement){
+    constructor(protected _current:HTMLDivElement, protected _parent:HTMLDivElement ){
         
-        
-        super()
-        console.log(parent , 15,'LineView')
-
-        this.current = document.createElement("div") ;
-        this.current.classList.add("line");
-      
-       // protected plateau:HTMLDivElement  = document.getElementById(id) as HTMLDivElement
-        
+      super(_current,_parent);
+      this._current.classList.add("line");  
     }
 
 
-drawLine = (cases:Case[]) => {
+draw = (cases:Case[]) => {
  cases.forEach(
      (c) => { 
-         let vc = new CaseView(this.current)
+         let vc = new CaseView(document.createElement('img'), this._current)
          vc.draw(c.value,c.face);
         })
-      this.parent.appendChild(this.current)
+      this._parent.appendChild(this._current)
 };
 
-clearLine = () => {
-  this.current.innerHTML = "";
+clear= () => {
+  this._current.innerHTML = "";
 };
 
 update(cases:Case[]){
-
-  this.clearLine()
-  this.drawLine(cases)
+  this.clear()
+  this.draw(cases)
 }
 
 

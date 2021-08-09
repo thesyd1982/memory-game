@@ -1,12 +1,12 @@
 import { Observer } from "./observer";
 import { Subject } from "./subject";
 import { ViewInterface } from "./view.interface.js";
-import {DrawingInterface} from "./drawing.interface.js"
+
 
 
 export abstract class View implements  ViewInterface{  
     
-    constructor( protected _drawing: DrawingInterface|null ){
+    constructor(protected current:HTMLElement, protected parent:HTMLElement){
     }
 
     private observers: Observer[] = [];
@@ -26,8 +26,7 @@ export abstract class View implements  ViewInterface{
 
     }
     
-    get drawing():DrawingInterface|null{ return this._drawing ;}
-    set drawing(drawing:DrawingInterface|null){  this._drawing = drawing ; }
+   
 
     
 }

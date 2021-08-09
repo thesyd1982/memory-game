@@ -11,12 +11,13 @@ let p = new Plateau(12,4)
 
 
 let c = new Case('king_heart')
-let vc = new CaseView(document.getElementById("plateau")as HTMLElement)
+
+let vc = new CaseView( document.createElement('img') , document.getElementById("plateau")as HTMLDivElement)
 let co = new CaseController(vc,c)
 
  let caseComponent = new CaseComponent(c,vc,co)
 
-vc.draw("king_heart",true)
+
 
  console.log(caseComponent)
 

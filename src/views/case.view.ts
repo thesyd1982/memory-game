@@ -1,37 +1,33 @@
 import { View } from "../core/view.js";
 
-
 export class CaseView extends  View  {
     
-    protected child:HTMLImageElement 
-
-    constructor(protected parent :HTMLElement  ){
-        super()
-        this.child = document.createElement("img");
-        
-        this.child.addEventListener('click',(e)=>{
+     constructor(protected _current :HTMLImageElement ,  protected _parent :HTMLDivElement){
+        super(_current , _parent)
+        this._current.addEventListener('click',(e)=>{
             this.notifyObservers(e)
         })
     }
-    drawCase = ( value:string , face:boolean) => {
-        this.clearCase()
-        this.child.classList.add("boxe");
+
+    draw = ( value:string , face:boolean) => {
+        this.clear()
+        this._current.classList.add("card");
         
         if(face){
-            this.child.classList.add("front")
-            this.child.src = `img/${value}.png`;
+            this._current.classList.add("front")
+            this._current.src = `img/${value}.png`;
         }
         else{    
-            this.child.classList.add("back")
-            this.child.src = 'img/back.png'
+            this._current.classList.add("back")
+            this._current.src = 'img/back.png'
     }
-        this.parent.appendChild(this.child)
+        this._parent.appendChild(this._current)
        
   };
 
-  clearCase = () => {
-      this.child.classList.remove("front", "back")
-      this.child.innerHTML = '';
+  clear=() => {
+      this._current.classList.remove("front", "back")
+      this._current.innerHTML = '';
       
   };
 
