@@ -1,46 +1,38 @@
 import { View } from "../core/view.js";
-import { CaseDrawing } from "./case.drawing.js";
-import { DrawingInterface } from '../core/drawing.interface';
 
 
 export class CaseView extends  View  {
     
-    protected _current:HTMLImageElement 
+    protected child:HTMLImageElement 
 
-    constructor(protected _parent :HTMLElement   ){
+    constructor(protected parent :HTMLElement  ){
+        super()
+        this.child = document.createElement("img");
         
-        super(null)
-        this._current= document.createElement("img");
-        
-        this._current.addEventListener('click',(e)=>{
+        this.child.addEventListener('click',(e)=>{
             this.notifyObservers(e)
         })
-
-        this._drawing = new CaseDrawing(this)
-
-       
     }
-   
-
-  clearCase = () => {
-      this._current.classList.remove("front", "back")
-      this._current.innerHTML = '';
-      
+    drawCase = ( value:string , face:boolean) => {
+        this.clearCase()
+        this.child.classList.add("boxe");
+        
+        if(face){
+            this.child.classList.add("front")
+            this.child.src = `img/${value}.png`;
+        }
+        else{    
+            this.child.classList.add("back")
+            this.child.src = 'img/back.png'
+    }
+        this.parent.appendChild(this.child)
+       
   };
 
-  get current(){
-      return this._current;
-  }
-  set current(current :HTMLImageElement ){
-      this._current = current
-  }
-
-  get parent(){
-    return this.parent;
-}
-set parent(parent :HTMLDivElement ){
-    this.parent = parent
-}
-
+  clearCase = () => {
+      this.child.classList.remove("front", "back")
+      this.child.innerHTML = '';
+      
+  };
 
 }
