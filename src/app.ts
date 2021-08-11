@@ -8,10 +8,18 @@ import { Line } from "./models/line.model.js"
 import { CaseComponent } from './components/case.component.js';
 import { LineComponent } from "./components/line.component.js"
 import { LineController } from "./controllers/line.controller.js"
+import { PlateauView } from './views/plateau.view.js';
+import { PlateauController } from "./controllers/plateau.controller.js"
+import { PlateauComponent } from './components/plateau.component.js';
 
-let p =  Plateau.init(8,3)
 
-console.log(p)
+let mp =  new Plateau()
+
+let vp = new PlateauView(document.getElementById('root') as HTMLDivElement)
+let pc = new PlateauController(mp,vp)
+
+let plateauComponent = new PlateauComponent(mp,vp,pc)
+
 
 
 
@@ -28,7 +36,7 @@ console.log(p)
  let lc = new LineController(l,lv)
  let lineComponent = new LineComponent(l, lv,lc)
  
- 
+
 
 
  let c = new Case('Qh')
@@ -58,10 +66,13 @@ console.log(p)
  lineComponent.add(caseComponent1)
  lineComponent.add(caseComponent2)
  
+ plateauComponent.add(lineComponent)
+ plateauComponent.add(lineComponent)
 
-console.log(lineComponent)
+ console.log(plateauComponent)
 
- lineComponent.draw()
+ plateauComponent.draw()
+
  //let plateau = new Plateau();
 //plateau.init()
 //console.log( l )

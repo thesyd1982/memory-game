@@ -16,7 +16,13 @@ export abstract class Composit extends Component {
     }
 
     add(component:Component){
-        this._components.push(component);
+        //let s = JSON.stringify(component)
+      // let c:Component = JSON.parse(s)
+       let c:Component = Object.assign({}, component);
+       c.id =  this._components.length
+       this._components.push(c);
+        // console.log(this._components.length-1 , "20 coposit")
+       
        
     } 
 

@@ -5,7 +5,20 @@ import {View}from '../core/view.js'
 
 export class PlateauView extends View{
     
-    draw():void{}
+        protected _current :  HTMLDivElement
+        constructor(protected _parent:HTMLDivElement ){
+            
+          super(_parent);
+          this._current = document.createElement("div") 
+          this._current.id = "plateau"
+    
+          this._current.classList.add("plateau");  
+          this._parent.appendChild(this._current);
+        }
+
+    draw():void{
+        
+    }
  } 
     
 //     protected plateau:HTMLDivElement = document.getElementById("plateau") as HTMLDivElement
