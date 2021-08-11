@@ -15,7 +15,7 @@ export class CaseView extends  View  {
         
         if(face){
             this._current.classList.add("front")
-            this._current.src = `img/${value}.png`;
+            this._current.src = `img/${value}.svg`;
         }
         else{    
             this._current.classList.add("back")

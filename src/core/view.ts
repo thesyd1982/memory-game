@@ -1,10 +1,7 @@
 import { Observer } from "./observer";
 import { Subject } from "./subject";
-import { ViewInterface } from "./view.interface.js";
 
-
-
-export abstract class View implements  ViewInterface{  
+export abstract class View implements  Subject{  
     
     constructor(protected current:HTMLElement, protected parent:HTMLElement){
     }

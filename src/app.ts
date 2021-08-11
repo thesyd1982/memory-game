@@ -7,10 +7,11 @@ import { LineView } from "./views/line.view.js"
 import { Line } from "./models/line.model.js"
 import { CaseComponent } from './components/case.component.js';
 
-let p = new Plateau(12,4)
+let p =  Plateau.init(8,3)
 
+console.log(p)
 
-let c = new Case('king_heart')
+let c = new Case('Qh')
 
 let vc = new CaseView( document.createElement('img') , document.getElementById("plateau")as HTMLDivElement)
 let co = new CaseController(vc,c)

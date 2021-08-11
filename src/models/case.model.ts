@@ -1,4 +1,5 @@
 import { Model } from "../core/model.js";
+import {cards} from "../data/cards.js"
 
 export class Case extends Model {
     
@@ -27,5 +28,8 @@ export class Case extends Model {
     clone(){
         return new Case(this._value,this._face);
     }
+
+    public static randCase = () => new Case(cards[Math.floor(Math.random() * cards.length)])
+    
 
 }  
