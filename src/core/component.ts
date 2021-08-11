@@ -3,10 +3,13 @@ import { View } from "./view.js"
 import {Controller}from "./controller.js"
 
 
-export class Component {
+export abstract class Component {
 
     constructor( protected _model:Model,protected _view:View ,protected _controller:Controller)
-    {}
+    {
+        this.view.registerObserver(this._controller)
+       
+    }
 
     get model (){
         return this._model
@@ -29,5 +32,7 @@ export class Component {
     set controller (controller){
         this._controller= controller;
     }
+
+    public abstract  draw():void;
  
 }

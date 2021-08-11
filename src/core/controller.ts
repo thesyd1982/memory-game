@@ -4,9 +4,8 @@ import {Observer }from './observer'
 
 export  abstract class Controller implements Observer{
 
- constructor(protected view:View, protected model:Model){
+ constructor(protected model:Model ,protected view:View ){
   
-    this.view.registerObserver(this);
  }
    abstract update(data: object): void ;
 }

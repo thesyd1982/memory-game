@@ -5,17 +5,19 @@ import {Controller}from "./controller.js"
 
 import { Component } from "./component.js"
 
-export class Composit extends Component {
+export abstract class Composit extends Component {
 
     protected _components:Component[] = []
     
     constructor( protected _model:Model,protected _view:View ,protected _controller:Controller){
         
         super(_model,_view,_controller)
+        
     }
 
     add(component:Component){
         this._components.push(component);
+       
     } 
 
     remove(component:Component){
@@ -30,5 +32,7 @@ export class Composit extends Component {
     getChildren():Component[]{
         return this._components
     }
+
+    
    
 }

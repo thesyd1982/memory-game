@@ -7,5 +7,8 @@ export class PlateauComponent extends Component{
     constructor(protected _plateauModel : Plateau,protected _plateauView: PlateauView, protected _plateauController: PlateauController)
     {
         super(_plateauModel,_plateauView,_plateauController)
+        this.draw()
     }
+
+    draw(){}
 }

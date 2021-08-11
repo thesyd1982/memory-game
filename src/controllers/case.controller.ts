@@ -3,17 +3,15 @@ import { Case } from "../models/case.model.js";
 import { CaseView } from "../views/case.view.js";
 
 export class CaseController extends Controller{
-    constructor( protected view:CaseView,  protected model:Case){
-        super(view,model)
-        this.view.draw(model.value,model.face)
+    constructor(   protected model:Case,protected view:CaseView){
+        super(model, view)
+       
     }
     update(data: object): void {
-        console.log(data);
-        //throw new Error("Method not implemented.");
-        console.log('avant', this.model.face)
+        //set model
         this.model.face = !this.model.face
-        console.log('apres', this.model.face)
+        // update view
         this.view.draw(this.model.value, this.model.face)
-        // updateview
+        
      }
 } 

@@ -1,3 +1,3 @@
 export interface Observer{
-     update(data: object):void;
+     update(data: object|null):void;
 }
