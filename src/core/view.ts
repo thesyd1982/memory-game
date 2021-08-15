@@ -3,10 +3,10 @@ import { Subject } from "./subject";
 
 export abstract class View implements  Subject{  
     
-    static id:number=-1 
-    
+  
+
     constructor(protected _parent:HTMLElement){
-        View.id++
+        
     }
 
     private observers: Observer[] = [];

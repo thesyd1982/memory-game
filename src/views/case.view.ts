@@ -3,17 +3,17 @@ import { View } from "../core/view.js";
 
 export class CaseView extends  View  {
     protected _current : HTMLImageElement;
-    
-
-     constructor( protected _parent :HTMLDivElement){
+    protected static id : number = -1  
+    constructor( protected _parent :HTMLDivElement){
+         
          
          super(_parent)
-         
+         CaseView.id++;
          this._current = document.createElement('img')
          this._current.classList.add("card");
          this._current.classList.add("back")
          this._current.src = 'img/back.png'
-         this._current.id = `${CaseView.name.split('View')[0].toLowerCase()}-${View.id}`
+         this._current.id = `${CaseView.name.split('View')[0].toLowerCase()}-${CaseView.id}`
         this._current.addEventListener('click',(e)=>{
             this.notifyObservers(e.target)
         })

@@ -6,9 +6,11 @@ import {View}from '../core/view.js'
 export class PlateauView extends View{
     
         protected _current :  HTMLDivElement
+        protected static  id = -1
         constructor(protected _parent:HTMLDivElement ){
             
           super(_parent);
+          PlateauView.id++ 
           this._current = document.createElement("div") 
           this._current.id = "plateau"
     
