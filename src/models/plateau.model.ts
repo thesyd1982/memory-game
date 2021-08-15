@@ -1,34 +1,39 @@
 import { Case } from "./case.model.js";
 import { Model } from "../core/model.js";
-
+import {Line} from "./line.model.js";
 
 
 export  class Plateau extends Model {
-    private _cases:any[][]
+   
     
-    constructor(public col:number = 8 ,public line:number = col){
+    constructor(protected _lines : Line[] = []){
         super()
-       
-        this._cases = [...Array( line)].map((_, i) =>
-			[...Array(col)].map((_, j) => null) //expamle [[null,null],[null,null]]
-		)
     }
 
-    get cases (){
-        return this._cases
+    get lines (){
+        return this._lines
     }
      
-    set cases (cases:Case[][]){
-        this._cases = cases
+    set lines (lines:Line[]){
+        this._lines = lines
     }
 
-    addCase(cellule:Case , x:number , y:number  ){
-            this._cases[x][y] = cellule
+    addLine(line:Line , line_index:number){
+            this._lines[line_index] = line
     } 
-    init(){
-        this._cases = [...Array( this.line)].map((_, i) =>
-			[...Array(this.col)].map((_, j) => new Case("king_heart")) //expamle [[null,null],[null,null]]
-		)
+
+    public static init(line_length:number,numberOfLine:number){
+        const  lines = []
+        let currentLine =  Line.init(line_length)
+        let currentCases = currentLine.cases
+        
+        for(let i = 0 ; i< numberOfLine ; i++){
+            
+            lines.push(new Line([...currentCases.sort(()=> Math.random()-0.5 )])) 
+        }
+        
+        return new Plateau(lines);
+       
     }
     
     generateClones = (n:number,value:string)=> {
@@ -44,5 +49,8 @@ export  class Plateau extends Model {
     generateTriple = (value:string)=>this.generateClones(3,value)
 
     //generateCasesList = (n:number) => n
+
+    shuffle = (array:any) => [... array.sort(()=> Math.random()-0.5 )] 
+    
 
 }   

@@ -5,17 +5,25 @@ import {Controller}from "./controller.js"
 
 import { Component } from "./component.js"
 
-export class Composit extends Component {
+export abstract class Composit extends Component {
 
     protected _components:Component[] = []
     
     constructor( protected _model:Model,protected _view:View ,protected _controller:Controller){
         
         super(_model,_view,_controller)
+        
     }
 
     add(component:Component){
-        this._components.push(component);
+        //let s = JSON.stringify(component)
+      // let c:Component = JSON.parse(s)
+        let c:Component = Object.assign({}, component);
+       //c.id =  this._components.length
+       this._components.push(c);
+        // console.log(this._components.length-1 , "20 coposit")
+       
+       
     } 
 
     remove(component:Component){
@@ -30,5 +38,7 @@ export class Composit extends Component {
     getChildren():Component[]{
         return this._components
     }
+
+    
    
 }

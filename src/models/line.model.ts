@@ -1,13 +1,12 @@
 import { Case } from "./case.model.js";
 import { Model } from "../core/model.js";
-
-
+import {cards} from "../data/cards.js";
 
 export  class Line extends Model {
     
-    protected _cases:Case[] = [] 
     
-    constructor(public x:number = 8)
+    
+    constructor( protected _cases:Case[] = []  )
     {
         super()
       
@@ -21,14 +20,27 @@ export  class Line extends Model {
         this._cases = cases
     }
 
-    addCase(cellule:Case , x:number  ){
-            this._cases[x] = cellule
+    add(cellule:Case , caseIndex:number  ){
+            this._cases[caseIndex] = cellule
     } 
     
-    init(x:number){
-        this._cases = [...Array(x)].map((_) => new Case("king_heart")) //expamle [ KH,KH ... ]
-         
-    }
+   public static init(numberOfCase:number) {
+    let cases:Case[] = []
+        // cases = [...Array(numberOfCase)].map((_) => {
+        //    let randomCase = Case.randCase()
+
+        let i=numberOfCase
+        while(i--)
+        {
+            let randomCase = Case.randCase()
+            while(cases.includes(randomCase) )   
+                randomCase = Case.randCase()
+            cases.push(randomCase)
+       }
+
+       //)
+       return new Line( cases );
+   }
 
 
 }   

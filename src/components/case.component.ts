@@ -4,8 +4,13 @@ import {CaseController}from "../controllers/case.controller.js"
 import {Component} from "../core/component.js"
 
 export class CaseComponent extends Component{
+    
     constructor( protected _caseModel : Case,protected _caseView: CaseView, protected _caseController: CaseController)
     {
         super(_caseModel,_caseView,_caseController)
+        //this.draw()
     }
+
+    draw = () => { this._caseView.draw(this._caseModel.value,this._caseModel.face) }
+    
 }

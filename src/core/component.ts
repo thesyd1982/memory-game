@@ -3,10 +3,18 @@ import { View } from "./view.js"
 import {Controller}from "./controller.js"
 
 
-export class Component {
+export abstract class Component {
+    
+    protected _name =  this.constructor.name;
+    static id:number = -1  ;
 
     constructor( protected _model:Model,protected _view:View ,protected _controller:Controller)
-    {}
+    {
+        this.view.registerObserver(this._controller);
+        Component.id = Component.id + 1 ;
+         
+       
+    }
 
     get model (){
         return this._model
@@ -29,5 +37,17 @@ export class Component {
     set controller (controller){
         this._controller= controller;
     }
+    
+    public get _id(){return this._id}
+    
+    public set _id(id:number){this._id = id}
+    
+
+    get name(){
+       return  this._name 
+    }
+
+
+    public abstract  draw():void;
  
 }

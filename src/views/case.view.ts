@@ -2,36 +2,44 @@ import { View } from "../core/view.js";
 
 
 export class CaseView extends  View  {
-    
-    protected child:HTMLImageElement 
-
-    constructor(protected parent :HTMLElement  ){
-        super()
-        this.child = document.createElement("img");
-        
-        this.child.addEventListener('click',(e)=>{
-            this.notifyObservers(e)
+    protected _current : HTMLImageElement;
+    protected static id : number = -1  
+    constructor( protected _parent :HTMLDivElement){
+         
+         
+         super(_parent)
+         CaseView.id++;
+         this._current = document.createElement('img')
+         this._current.classList.add("card");
+         this._current.classList.add("back")
+         this._current.src = 'img/back.png'
+         this._current.id = `${CaseView.name.split('View')[0].toLowerCase()}-${CaseView.id}`
+        this._current.addEventListener('click',(e)=>{
+            this.notifyObservers(e.target)
         })
+
+        this._parent.appendChild(this._current)
     }
-    drawCase = ( value:string , face:boolean) => {
-        this.clearCase()
-        this.child.classList.add("boxe");
+
+    draw = ( value:string , face:boolean) => {
         
         if(face){
-            this.child.classList.add("front")
-            this.child.src = `img/${value}.png`;
+            this._current.classList.remove('back')
+            this._current.classList.add("front")
+            this._current.src = `img/${value}.svg`;
         }
-        else{    
-            this.child.classList.add("back")
-            this.child.src = 'img/back.png'
+        else{ 
+            this._current.classList.remove('front')   
+            this._current.classList.add("back")
+            this._current.src = 'img/back.png'
     }
-        this.parent.appendChild(this.child)
-       
+     //bonneteau   
+   // this._parent.appendChild(this._current)   
   };
 
-  clearCase = () => {
-      this.child.classList.remove("front", "back")
-      this.child.innerHTML = '';
+  clear=() => {
+      this._current.classList.remove("front", "back")
+      //this._current.innerHTML = '';
       
   };
 
