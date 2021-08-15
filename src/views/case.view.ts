@@ -1,5 +1,6 @@
 import { View } from "../core/view.js";
 
+
 export class CaseView extends  View  {
     protected _current : HTMLImageElement;
     
@@ -12,7 +13,7 @@ export class CaseView extends  View  {
          this._current.classList.add("card");
          this._current.classList.add("back")
          this._current.src = 'img/back.png'
-         
+         this._current.id = `${CaseView.name.split('View')[0].toLowerCase()}-${View.id}`
         this._current.addEventListener('click',(e)=>{
             this.notifyObservers(e.target)
         })

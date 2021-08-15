@@ -11,7 +11,7 @@ export class LineView extends View{
         
       super(_parent);
       this._current = document.createElement("div") 
-      this._current.id = "line"
+      this._current.id = `${LineView.name.split('View')[0].toLowerCase()}_${View.id}`
 
       this._current.classList.add("line");  
       this._parent.appendChild(this._current);

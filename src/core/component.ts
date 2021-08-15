@@ -6,12 +6,13 @@ import {Controller}from "./controller.js"
 export abstract class Component {
     
     protected _name =  this.constructor.name;
-    public id:number = -1  ;
+    static id:number = -1  ;
 
     constructor( protected _model:Model,protected _view:View ,protected _controller:Controller)
     {
         this.view.registerObserver(this._controller);
-        
+        Component.id = Component.id + 1 ;
+         
        
     }
 

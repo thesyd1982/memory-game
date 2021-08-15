@@ -40,12 +40,12 @@ let plateauComponent = new PlateauComponent(mp,vp,pc)
 
 
  let c = new Case('Qh')
- let vc = new CaseView( document.getElementById("line")as HTMLDivElement)
+ let vc = new CaseView( document.getElementById("line_1")as HTMLDivElement)
  let co = new CaseController(c,vc)
  let caseComponent = new CaseComponent(c,vc,co)
  
  let c1 = new Case('Ad')
- let vc1 = new CaseView( document.getElementById("line")as HTMLDivElement)
+ let vc1 = new CaseView( document.getElementById("line_1")as HTMLDivElement)
  let co1 = new CaseController(c1,vc1)
 
 
@@ -53,7 +53,7 @@ let plateauComponent = new PlateauComponent(mp,vp,pc)
 
   
  let c2 = new Case('As')
- let vc2 = new CaseView( document.getElementById("line")as HTMLDivElement)
+ let vc2 = new CaseView( document.getElementById("line_1")as HTMLDivElement)
  let co2 = new CaseController(c2,vc2)
 
 
@@ -66,8 +66,18 @@ let plateauComponent = new PlateauComponent(mp,vp,pc)
  lineComponent.add(caseComponent1)
  lineComponent.add(caseComponent2)
  
+ let l1 = new Line();//  Line.init(10);
+
+ let l1v = new LineView(document.getElementById("plateau")as HTMLDivElement)
+ let l1c = new LineController(l1,l1v)
+ let lineComponent1 = new LineComponent(l1, l1v,l1c)
+
+ lineComponent1.add(caseComponent2)
+
+
+
  plateauComponent.add(lineComponent)
- plateauComponent.add(lineComponent)
+ 
 
  console.log(plateauComponent)
 
